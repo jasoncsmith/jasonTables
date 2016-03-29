@@ -1,6 +1,8 @@
 // !! NOTE: not just me... 
 // https://github.com/knockout/knockout/issues/237
 // https://github.com/knockout/knockout/issues/248
+MDD = MDD || {};
+MDD.apis = MDD.apis || {};
 
 // only uses loader on the initial GET.
 MDD.apis.JasonTables = function (options, records) {
