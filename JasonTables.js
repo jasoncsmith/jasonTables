@@ -153,11 +153,11 @@ MDD.apis.JasonTables = function (options, records) {
 	}
 
 	function objectTraverser (path, obj) {
-		// ex: path = 'activeRate:NESTING1:PropIamLookingFor';
+		// ex: path = 'lastRateWindow:NESTING1:PropIamLookingFor';
 		//ex: record = {
 		//	NAME: 'bob',
 		//	amAnArray: [1,2,3,4,5],
-		//	activeRate: {
+		//	lastRateWindow: {
 		//		AMOUNT: '200',
 		//		NESTING1: {
 		//			PropIamLookingFor: 'john',
@@ -394,8 +394,6 @@ MDD.apis.JasonTables = function (options, records) {
 
 	};
 
-
-
 	// !! note paging may need to be built around the record count rather than the paging state?
 	var paging = {
 		currentPage: 1,
@@ -614,7 +612,8 @@ MDD.apis.JasonTables = function (options, records) {
 				resultSet: resultSet,
 				controller: controller
 			});
-			advancedSearchInstance.initialize(options.advancedFilter.config)
+			
+			advancedSearchInstance.initialize({fields: options.advancedFilter.config, owner: options.owner})
 		}
 
 		if (options.defaultSort) {
