@@ -1,0 +1,71 @@
+{
+	"name": "table madness",
+	"version": "0.0.0.0",
+	"description": "jasontables for knockout",
+	"main": "/",
+	"keywords": [
+	],
+	"license": "MIT",
+	"homepage": "/",
+	"private": false,
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+
+	"dependencies": {
+		"jquery": "2.1.3",
+		"jquery-migrate": "1.2.1",
+		"jquery-ui": "1.11.3",
+		"knockout": "3.3.0",
+		"knockout-postbox": "0.4.2",
+		"font-awesome": "4.5.0"
+	},
+
+	"install": {
+		"path": {
+			"map":  "Vendor",
+			"js":   "Vendor",
+
+			"scss": "../Content/Vendor/Scss",
+			"css":  "../Content/Vendor/Css",
+
+			"png":  "../Content/Vendor/Images",
+			"jpg":  "../Content/Vendor/Images",
+			"gif":  "../Content/Vendor/Images",
+
+			"otf":  "../Content/Vendor/Fonts",
+			"eot":  "../Content/Vendor/Fonts",
+			"svg":  "../Content/Vendor/Fonts",
+			"ttf":  "../Content/Vendor/Fonts",
+			"woff2":  "../Content/Vendor/Fonts",
+			"woff": "../Content/Vendor/Fonts"
+		},
+		"sources": {
+			"jquery": [
+				"bower_components/jquery/dist/**",
+				"bower_components/jquery-migrate/jquery-migrate.min.js"
+			],
+			"jquery-ui": [
+				"bower_components/jquery-ui/themes/smoothness/images/*.png",
+				"bower_components/jquery-ui/*.js"
+			],
+			"knockout": [
+				"bower_components/knockout/dist/**",
+				"bower_components/knockout-postbox/build/knockout-postbox.js",
+				"bower_components/knockout-postbox/build/knockout-postbox.min.js"
+  			],
+			"font-awesome": [
+				"bower_components/font-awesome/fonts/*.*",
+				"bower_components/font-awesome/scss/*.scss",
+				"bower_components/font-awesome/css/*.css"
+			]
+		},
+		"ignore": [
+			"knockout-postbox"
+		]
+	}
+}

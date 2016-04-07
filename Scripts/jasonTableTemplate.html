@@ -1,0 +1,83 @@
+<script id="template-jason-table" type="text/html">
+    <section id="view-jTable" class="jasonTable" data-bind="with: jTableInstance, css: jTableInstance.dataSource">
+        <div class="controls" data-bind="visible: recordsToDisplay().length > 0 || (filter() || advancedFilter.isActive())">
+            <section class="items-to-display">
+                <label>Show: </label>
+                <select data-bind="options: pageLengths, value: selectedPageLength"></select>
+            </section>
+
+            <section class="filter-items">
+                <div class="filter-input-wrap fa" data-bind="visible: (!advancedFilter.isMaximized()) && recordsToDisplay().length > 0 || filter">
+                    <input class="filter" type="search" data-bind="value: filter, valueUpdate: 'input', css: {'active': filter}, attr: {placeholder: 'Search ' + recordType + 's'}" />
+                </div>
+
+                <!-- ko with: advancedFilter -->
+                <i class="activate-advanced-filter fa fa-filter" data-bind="click: toggle, visible: !isMaximized()"></i>
+
+                <div class="control-groups exterior" data-bind="foreach: exteriorFields, visible: !isMaximized() && exteriorFields.length">
+                    <!-- ko if: control.type === 'checkbox' -->
+                    <div class="control-group input-checkbox exterior">
+                        <label for="" data-bind="html: control.label"></label> @*attr: {for: ['exterior', 'checkbox'].join('-')},*@
+                        <input type="checkbox" id="" class="" name="name" value="true" data-bind="checked: value" /> @*attr: {id: ['exterior', 'checkbox'].join('-')},*@
+                    </div>
+                    <!-- /ko -->
+                </div>
+                <!-- /ko -->
+            </section>
+        </div>
+
+        <section class="advanced-filter" data-bind="with: advancedFilter, visible: advancedFilter" style="display:none">
+            <form data-bind="visible: isMaximized" style="display:none">
+                <h3>Filter by Multiple Attributes</h3>
+                <div class="commands">
+                    <button class="clear cancel-link" data-bind="click: clear">Clear Form</button>
+                    <button class="close" data-bind="click: cancel"><i class="fa fa-times"></i> Close</button>
+                </div>
+
+                <div class="control-groups" data-bind="foreach: fields">
+                    <!-- ko if: control.type === 'input' -->
+                    <div class="control-group input-text">
+                        <label data-bind="html: control.label, visible: control.placeholder === false"></label>
+                        <input type="text" data-bind="value: value, valueUpdate: 'input', attr: {'placeholder': control.placeholder === true ? control.label : ''}" />
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko if: control.type === 'checkbox' -->
+                    <div class="control-group input-checkbox">
+                        <label for="" data-bind="html: control.label"></label> @*attr: {for: ['interior', 'checkbox'].join('-')},*@
+                        <input type="checkbox" id="" class="" name="name" value="true" data-bind="checked: value" /> @*attr: {for: ['interior', 'checkbox'].join('-')},*@
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko if: control.type === 'select' -->
+                    <div class="control-group input-select">
+                        <label data-bind="html: control.label, visible: control.placeholder === false"></label>
+                        <select data-bind="options: control.options, optionsCaption: control.placeholder === true ? control.label : 'Select', optionsValue: 'NAME', optionsText: 'NAME', value: value, visible: true"></select>@*, css: {'invalid': value.hasError}*@
+                    </div>
+                    <!-- /ko -->
+
+                </div>
+            </form>
+        </section>
+
+        <section class="view-list" data-bind="delegatedHandler: 'click', template: { name: 'template-timekeeper-timekeeper', foreach: recordsToDisplay }, visible: recordsToDisplay().length > 0"></section>
+
+        <!-- ko if: recordsToDisplay().length === 0 && !isLoading() -->
+        <section class="no-records">No <span data-bind="text: recordType"></span>s<span data-bind="visible: filter">&nbsp;found that contain: "<em data-bind="text: filter"></em>"</span></section>
+        <!-- /ko -->
+
+        <section class="paging-info" data-bind="visible: recordsToDisplay().length > 0">
+            <p>
+                <span data-bind="formatUnits: recordCount.displayedStart, formatUnitsOptions: {fractionalPart: 0}"></span>&nbsp;to&nbsp;<span data-bind="formatUnits: recordCount.displayedEnd, formatUnitsOptions: {fractionalPart: 0}"></span>&nbsp;of&nbsp;<span data-bind="formatUnits: recordCount.totalRecords, formatUnitsOptions: {fractionalPart: 0}"></span>&nbsp;
+                <em data-bind="visible: isFilterResultsVisible">(Filtered from <span data-bind="text: allRecords().length"></span> records)</em>
+            </p>
+            <span class="clear-criteria-filter" data-bind="visible: isCriteriaFilterActive, click: clearCriteria"><i class="fa fa-times"></i> Clear Filter</span>
+        </section>
+
+        <section class="paging-commands" data-bind="visible: recordsToDisplay().length > 0">
+            <div class="pages" data-bind="delegatedHandler: 'click', foreach: pages">
+                <button class="page" data-bind="html: title, click: $parent.selectPage, css: {'arrow': type === 'arrow', 'number': type === 'number', 'active': isActive }, disable: isDisabled,"></button>
+            </div>
+        </section>
+
+        <div style="display:none" class="loader" data-bind="visible: isLoading"><i class="fa fa-2x fa-circle-o-notch fa-spin"></i><div>Loading <span data-bind="text: recordType"></span>s</div></div>
+    </section>
+</script>
