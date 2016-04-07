@@ -8,9 +8,17 @@
     <body>
         <section id="sample-app">
             <h1>Filter, sort, paginate</h1>
-            <div data-bind="template: template-jason-table"></div>
-        </section>
-    
+            <div data-bind="template: 'template-jason-table'"></div>
+
+</section>
+    <script id="template-record" type="text/html">
+        <div>
+            <span style="display:inline-block; width:300px;" data-bind="html: name"></span>
+            <span style="display:inline-block; width:300px;" data-bind="html: company"></span>
+            <span style="display:inline-block; width:300px;" data-bind="html: email"></span>
+            <span style="display:inline-block; width:300px;" data-bind="html: hireDate"></span>
+        </div>
+    </script>  
     <script id="template-jason-table" type="text/html">
         <section id="view-jTable" class="jasonTable" data-bind="with: jTableInstance, css: jTableInstance.dataSource">
             <div class="controls" data-bind="visible: recordsToDisplay().length > 0 || (filter() || advancedFilter.isActive())">
@@ -30,8 +38,8 @@
                     <div class="control-groups exterior" data-bind="foreach: exteriorFields, visible: !isMaximized() && exteriorFields.length">
                         <!-- ko if: control.type === 'checkbox' -->
                         <div class="control-group input-checkbox exterior">
-                            <label for="" data-bind="html: control.label"></label> @*attr: {for: ['exterior', 'checkbox'].join('-')},*@
-                            <input type="checkbox" id="" class="" name="name" value="true" data-bind="checked: value" /> @*attr: {id: ['exterior', 'checkbox'].join('-')},*@
+                            <label for="" data-bind="html: control.label"></label>
+                            <input type="checkbox" id="" class="" name="name" value="true" data-bind="checked: value" />
                         </div>
                         <!-- /ko -->
                     </div>
@@ -56,8 +64,8 @@
                         <!-- /ko -->
                         <!-- ko if: control.type === 'checkbox' -->
                         <div class="control-group input-checkbox">
-                            <label for="" data-bind="html: control.label"></label> @*attr: {for: ['interior', 'checkbox'].join('-')},*@
-                            <input type="checkbox" id="" class="" name="name" value="true" data-bind="checked: value" /> @*attr: {for: ['interior', 'checkbox'].join('-')},*@
+                            <label for="" data-bind="html: control.label"></label>
+                            <input type="checkbox" id="" class="" name="name" value="true" data-bind="checked: value" />
                         </div>
                         <!-- /ko -->
                         <!-- ko if: control.type === 'select' -->
@@ -71,7 +79,7 @@
                 </form>
             </section>
     
-            <section class="view-list" data-bind="delegatedHandler: 'click', template: { name: 'template-timekeeper-timekeeper', foreach: recordsToDisplay }, visible: recordsToDisplay().length > 0"></section>
+            <section class="view-list" data-bind="delegatedHandler: 'click', template: { name: 'template-record', foreach: recordsToDisplay }, visible: recordsToDisplay().length > 0"></section>
     
             <!-- ko if: recordsToDisplay().length === 0 && !isLoading() -->
             <section class="no-records">No <span data-bind="text: recordType"></span>s<span data-bind="visible: filter">&nbsp;found that contain: "<em data-bind="text: filter"></em>"</span></section>
@@ -94,5 +102,15 @@
             <div style="display:none" class="loader" data-bind="visible: isLoading"><i class="fa fa-2x fa-circle-o-notch fa-spin"></i><div>Loading <span data-bind="text: recordType"></span>s</div></div>
         </section>
     </script>
+    
+    <script src="Scripts/Vendor/jquery.min.js"></script>
+    <script src="Scripts/Vendor/jquery-migrate.min.js"></script>
+    <script src="Scripts/Vendor/knockout.js"></script>
+    <script src="Scripts/Vendor/knockout-postbox.min.js"></script>
+
+
+    <script src="Scripts/AdvancedFilter.js"></script>
+    <script src="Scripts/JasonTables.js"></script>
+    <script src="Scripts/initialize.js"></script>
     </body>
 </html>
