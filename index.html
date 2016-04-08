@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Your Website</title>
+    <title>An Alternative to Datatables for Knockout</title>
 
     <link href="CSS/Vendor/font-awesome.css" rel="stylesheet" />
     <link href="CSS/reset.css" rel="stylesheet" />
@@ -124,7 +124,7 @@
         </script>
     </section>
     
-    <script id="template-record" type="text/html">
+    <script id="template-div-record" type="text/html">
         <div>
             <span data-bind="html: name"></span>
             <span data-bind="html: company"></span>
@@ -134,14 +134,14 @@
         </div>
     </script>
 
-                    <!--<div class="control-groups exterior" data-bind="foreach: exteriorFields, visible: !isMaximized() && exteriorFields.length">-->
-                        <!-- ko if: control.type === 'checkbox' -->
-                        <!--<div class="control-group input-checkbox exterior">
-                            <label for="" data-bind="html: control.label"></label>
-                            <input type="checkbox" id="" class="" name="name" value="true" data-bind="checked: value" />
-                        </div>-->
-                        <!-- /ko -->
-                    <!--</div>-->
+    <!--<div class="control-groups exterior" data-bind="foreach: exteriorFields, visible: !isMaximized() && exteriorFields.length">-->
+        <!-- ko if: control.type === 'checkbox' -->
+        <!--<div class="control-group input-checkbox exterior">
+            <label for="" data-bind="html: control.label"></label>
+            <input type="checkbox" id="" class="" name="name" value="true" data-bind="checked: value" />
+        </div>-->
+        <!-- /ko -->
+    <!--</div>-->
 
 
 
