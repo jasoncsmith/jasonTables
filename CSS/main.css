@@ -1,0 +1,470 @@
+h1,
+h2,
+h3,
+h4 { font-weight: bold; font-size: 18px}
+h1 { margin: 15px 0; margin-left:15%; }
+html { font-family: Arial; font-size:14px; }
+* { box-sizing: border-box; }
+
+input[type=text],
+input[type=search] { width:100%; padding:10px; font-size:14px; -webkit-appearance: none;}
+select { height:40px; line-height: 20px; background: transparent; }
+label { font-weight: bold; }
+
+.control-groups {
+    width: 100%;
+    float: left;
+    clear: left;     
+}
+
+.jasonTable {
+    width: 70%;
+    float: left;
+    clear: left;
+    margin:0 15%;
+    position: relative;
+    min-height: 110px;
+    border: 1px solid #555;
+    padding: 15px;
+    }
+
+.jasonTable .view-list {
+    width: 100%;
+    float: left;
+    clear: left;
+}
+.jasonTable .view-list div {     
+    width: 100%;
+    float: left;
+    clear: left; 
+    margin-bottom:10px; 
+} 
+table,
+tr {width:100%;}
+
+.jasonTable th,
+.jasonTable td { padding:5px 10px; text-align: left } 
+
+.jasonTable th {}
+
+.jasonTable .sort:hover {
+    background-color: #f1efe8
+}
+
+.jasonTable .sort .icon {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background-image: url("../Vendor/Images/jquery-ui/ui-icons_2e83ff_256x240.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    margin-top: -9.5px
+}
+
+.jasonTable .sort_invisible {
+    display: none
+}
+
+.jasonTable .sort_asc {
+    cursor: pointer;
+    background-color: #F1EFE8
+}
+
+.jasonTable .sort_asc .icon {
+    background-image: url("../Vendor/Images/datatables/sort_asc.png")
+}
+
+.jasonTable .sort_dsc {
+    cursor: pointer;
+    background-color: #F1EFE8
+}
+
+.jasonTable .sort_dsc .icon {
+    background-image: url("../Vendor/Images/datatables/sort_desc.png")
+}
+
+.jasonTable .sort_idle {
+    cursor: pointer
+}
+
+.jasonTable .sort_idle .icon {
+    background-image: url("../Vendor/Images/datatables/sort_both.png")
+}
+
+.jasonTable .sort_disabled {
+    cursor: default
+}
+
+.jasonTable .sort_disabled .icon {
+    background-image: none
+}
+
+.jasonTable .sort_disabled:hover {
+    background-color: transparent
+}
+
+.jasonTable .filter-items {
+    float:left; 
+}
+.jasonTable .items-to-display {
+    color: #878787;
+    margin: 0;
+    float: right;
+    margin: 0 0 0 40px
+}
+
+.jasonTable .items-to-display label {
+    padding: 0;
+    font-size: 11px
+}
+
+.jasonTable .items-to-display select {
+    font-size: 11px;
+    margin: 0 0 0 5px;
+    padding: 6px 8px;
+    width: auto;
+}
+
+.jasonTable .filter-input-wrap {
+    width: calc(100% - 50px);
+    float: right;
+    text-align: left;
+    margin: 0;
+    color: #878787;
+    font-size: 11px;
+    position: relative
+}
+
+.jasonTable .filter-input-wrap:before {
+    content: "\f002";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 8px;
+    font-size: 20px;
+    top: 8.5px;
+    color: rgba(0, 70, 134, 0.57)
+}
+
+.jasonTable .filter-input-wrap label {
+    width: 100%;
+    float: left;
+    padding: 0
+}
+
+/*.jasonTable .filter-input-wrap input[type="search"] {
+    float: right;
+    width: 100%;
+    background: #FFF;
+    color: #004686;
+    margin: 0;
+    height: auto;
+    position: static;
+    font-style: italic;
+    padding: 10px
+}*/
+
+.jasonTable .filter-input-wrap .active {
+    border-color: #004686;
+    -webkit-box-shadow: 0 0 3px #004686;
+    -moz-box-shadow: 0 0 3px #004686;
+    box-shadow: 0 0 3px #004686
+}
+
+.jasonTable .paging-commands {
+    float: right;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    margin: 15px 0
+}
+
+.jasonTable .paging-commands .previous,
+.jasonTable .paging-commands .next {
+    font-size: 16px;
+    font-weight: bold
+}
+
+.jasonTable .paging-commands .pages {
+    display: inline-block
+}
+
+.jasonTable .paging-commands .page {
+    padding: 0 7px;
+    color: #004686;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0);
+    margin-right: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out
+}
+
+.jasonTable .paging-commands .page:hover {
+    color: #FFF;
+    background-color: #004686;
+    border-color: #004686
+}
+
+.jasonTable .paging-commands .page.active {
+    color: #000 !important;
+    background-color: #FFF !important;
+    border-color: none !important;
+    cursor: default
+}
+
+.jasonTable .paging-commands .page.active:hover {
+    color: #000 !important;
+    background-color: transparent !important;
+    border-color: none !important
+}
+
+.jasonTable .paging-commands .page:disabled {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    cursor: default;
+}
+
+.jasonTable .paging-commands .arrow {
+    border-color: transparent
+}
+
+.jasonTable .paging-info {
+    font-size: 14px;
+    float: left;
+    padding: 10px;
+    position: relative;
+    margin: 15px 0;
+    border: 1px solid #CCC;
+    background: #FFF
+}
+
+.jasonTable .paging-info span {
+    font-weight: bold
+}
+
+.jasonTable .paging-info em {
+    padding-left: 5px;
+    color: #d37600;
+    font-weight: bold
+}
+
+.jasonTable .paging-info .clear-filter {
+    cursor: pointer;
+    position: absolute;
+    right: -110px;
+    top: 10px;
+    color: #004686
+}
+
+.jasonTable .paging-info .clear-filter:hover {
+    color: #007df0
+}
+
+.jasonTable .paging-info .clear-filter span {
+    text-decoration: underline;
+    padding-left: 8px
+}
+
+.jasonTable .no-records {
+    width: 100%;
+    float: left;
+    clear: left;
+    border: 1px solid #5DA0C2;
+    width: 99%;
+    margin: 0.5%;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    background-color: #d9edf7;
+    color: #31708f !important;
+    text-align: center;
+    -webkit-box-shadow: 0 0 10px rgba(45, 88, 110, 0.6) inset;
+    -moz-box-shadow: 0 0 10px rgba(45, 88, 110, 0.6) inset;
+    box-shadow: 0 0 10px rgba(45, 88, 110, 0.6) inset
+}
+
+.jasonTable .no-records em {
+    color: #d37600;
+    font-weight: bold
+}
+
+.jasonTable.client>.loader {
+    position: static;
+    color: #004686;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    width: 100%;
+    float: left;
+    clear: left;
+    width: 20%;
+    margin: 20px 40%;
+    padding: 10px 0;
+    border: 1px solid #578FCE
+}
+
+.jasonTable.client>.loader div {
+    line-height: 1
+}
+
+.jasonTable .activate-advanced-filter {
+    float: right;
+    font-size: 22.5px;
+    margin-right: 10px;
+    color: #FFF;
+    background: #004686;
+    padding: 6px 10px;
+    border: 1px solid #004686;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box
+}
+
+.jasonTable .exterior {    
+    position: absolute;
+    left: 30%;
+    top: 14px;
+    width: 50%;
+    }
+
+.jasonTable .activate-advanced-filter:hover {
+    background: #007df0
+}
+
+.advanced-filter {
+    width: 100%;
+    float: left;
+    clear: left;
+    margin:10px 0 30px 0;
+    position: relative
+}
+
+.advanced-filter h3 {
+    width: 250px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    float: left
+}
+
+.advanced-filter .commands {
+    width: calc(100% - 250px);
+    float: left;
+    clear: none;
+    margin: 0
+}
+
+.advanced-filter .commands .close {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 14px;
+    padding: 4px 15px;
+    border: none;
+    background: #004686;
+    color: #FFF;
+    -webkit-box-shadow: 1px -1px 3px rgba(0, 0, 0, 0.7) inset;
+    -moz-box-shadow: 1px -1px 3px rgba(0, 0, 0, 0.7) inset;
+    box-shadow: 1px -1px 3px rgba(0, 0, 0, 0.7) inset;
+    -ms-border-radius: 0 4px 0 4px;
+    -o-border-radius: 0 4px 0 4px;
+    -webkit-border-radius: 0 4px 0 4px;
+    -moz-border-radius: 0 4px 0 4px;
+    border-radius: 0 4px 0 4px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box
+}
+
+.advanced-filter .commands .close i {
+    padding-right: 8px
+}
+
+.advanced-filter.is-active .activate {
+    border-bottom-color: #FFF;
+    color: #004686;
+    background: #fff
+}
+
+.advanced-filter form {
+    width: 100%;
+    float: left;
+    clear: left;
+    z-index: 1;
+    top: 37px;
+    background: #FFF;
+    border: 1px solid #004686;
+    padding: 10px;
+    -webkit-box-shadow: 2px 5px 6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 2px 5px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 5px 6px rgba(0, 0, 0, 0.3);
+    -ms-border-radius: 0 2px 2px 2px;
+    -o-border-radius: 0 2px 2px 2px;
+    -webkit-border-radius: 0 2px 2px 2px;
+    -moz-border-radius: 0 2px 2px 2px;
+    border-radius: 0 2px 2px 2px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box
+}
+
+.advanced-filter label {
+    margin-bottom: 4px
+}
+
+.advanced-filter .control-group {
+    float: left;
+    clear: none;
+    width: 20%;
+    margin: 0 2% 1% 0
+}
+
+.advanced-filter .control-group:last-of-type {
+    margin-right: 0
+}
+
+.advanced-filter .control-group.input-checkbox {
+    padding: 11px 0 0 0
+}
+
+.advanced-filter .control-group.input-checkbox label {
+    width: auto;
+    padding-right: 10px;
+    margin: 0
+}
+
+.advanced-filter .control-group {
+    width: 19%;
+    margin-right: 1%
+}
+
+.advanced-filter .control-group:last-of-type {
+    margin-right: 0
+}

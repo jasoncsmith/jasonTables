@@ -39,13 +39,20 @@ JASON.viewModels.Sample = function(sampleData) {
                 className: 'hireDate'
             },             
             {
+                title: 'Phone',
+                key: 'phone',
+                canSort: true,
+                canSearch: true,
+                sortFn: null,
+                className: 'phone'
+            },               {
                 title: 'Is Active',
                 key: 'isActive',
-                canSort: false,
-                canSearch: true,
+                canSort: true,
+                canSearch: false,
                 sortFn: function(a, b) {
-                    a = ko.unwrap(a.IS_DISABLED) === true ? 1 : 0,
-                    b = ko.unwrap(b.IS_DISABLED) === true ? 1 : 0;
+                    a = ko.unwrap(a.isActive) === true ? 1 : 0,
+                    b = ko.unwrap(b.isActive) === true ? 1 : 0;
                     return a - b;
                 },
                 className: 'is-active'
