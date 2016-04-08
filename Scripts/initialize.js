@@ -88,52 +88,39 @@ JASON.viewModels.Sample = function(sampleData) {
                     isExterior: true
                 }
             }, {
-                    propertyName: 'name',
-                    value: ko.observable(''),
-                    control: {
-                        label: 'Name',
-                        type: 'input',
-                        options: null,
-                        lookup: null,
-                        placeholder: true,
-                        isExterior: false
-                    }
-                }, 
-                // {
-                //     propertyName: 'TIMEKEEPER_CLASSIFICATION',
-                //     value: ko.observable(''),
-                //     control: {
-                //         label: 'Select Classification',
-                //         type: 'select',
-                //         options: MDD.globals.uiOptions.TIMEKEEPER_CLASSIFICATION.options, // i set the name to the value of the option
-                //         lookup: null,
-                //         placeholder: true,
-                //         isExterior: false
-                //     }
-                // }, 
-                {
-                    propertyName: 'company',
-                    value: ko.observable(''),
-                    control: {
-                        label: 'Company',
-                        type: 'input',
-                        options: null,
-                        lookup: null,
-                        placeholder: true,
-                        isExterior: false
-                    }
-                }, {
-                    propertyName: 'email',
-                    value: ko.observable(''),
-                    control: {
-                        label: 'Email',
-                        type: 'input',
-                        options: null,
-                        lookup: null,
-                        placeholder: true,
-                        isExterior: false
-                    }
-                }]
+                propertyName: 'name',
+                value: ko.observable(''),
+                control: {
+                    label: 'Name',
+                    type: 'input',
+                    options: null,
+                    lookup: null,
+                    placeholder: true,
+                    isExterior: false
+                }
+            }, {
+                propertyName: 'company',
+                value: ko.observable(''),
+                control: {
+                    label: 'Company',
+                    type: 'input',
+                    options: null,
+                    lookup: null,
+                    placeholder: true,
+                    isExterior: false
+                }
+            }, {
+                propertyName: 'email',
+                value: ko.observable(''),
+                control: {
+                    label: 'Email',
+                    type: 'input',
+                    options: null,
+                    lookup: null,
+                    placeholder: true,
+                    isExterior: false
+                }
+            }]
         },
         owner: null
     };
