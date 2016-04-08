@@ -45,7 +45,7 @@ tr {width:100%;}
 .jasonTable th,
 .jasonTable td { padding:5px 10px; text-align: left } 
 
-.jasonTable th {}
+.jasonTable th {font-weight:bold; background: #FDF9EC}
 
 .jasonTable .sort:hover {
     background-color: #f1efe8

@@ -44,6 +44,31 @@ JASON.utils = {
 
             return formattedIntegerPart.join('');
         },
+    },
+    dates: {
+		convertStringToDateObject: function (str) {
+			// expects '02/07/2014'
+            if (JASON.utils.checkVariableType(str) !== 'string') return str;
+            
+			var tempArray = str.split('/');
+			var date = {
+				month: (+tempArray[0]) - 1, // [0-11]
+				day: +tempArray[1],
+				year: +tempArray[2]
+			}
+			return (new Date(date.year, date.month, date.day));
+		},
+		convertDateObjectToString: function (obj) {
+            if (JASON.utils.checkVariableType(obj) !== 'object') return obj;
+            
+			var month = obj.getMonth() + 1;
+			var day = obj.getDate();
+
+			var formattedMonth = (+month > 0 && +month < 10) ? '0' + month : month;
+			var formattedDay = (+day > 0 && +day < 10) ? '0' + day : day;
+
+			return [formattedMonth, formattedDay, obj.getFullYear()].join('/');
+		}        
     }
 };
 
