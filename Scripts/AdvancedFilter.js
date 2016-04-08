@@ -120,7 +120,7 @@ JASON.apis.AdvancedFilter = function (options) {
 		while(i--) {
 			var field = options.fields[i];
 			field.value.subscribe(self.send);
-			if (field.exterior = true) self.exteriorFields.push(field)
+			if (field.exterior === true) self.exteriorFields.push(field)
 		}
 		self.fields = options.fields;
 		self.owner = options.owner; // for debugging

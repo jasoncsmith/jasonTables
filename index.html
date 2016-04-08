@@ -33,6 +33,14 @@
                         <!-- ko with: advancedFilter -->
                         <i class="activate-advanced-filter fa fa-filter" data-bind="click: toggle, visible: !isMaximized()"></i>
 
+                        <div class="control-groups exterior" data-bind="foreach: exteriorFields, visible: !isMaximized() && exteriorFields.length">
+                            <!-- ko if: control.type === 'checkbox' -->
+                            <div class="control-group input-checkbox exterior">
+                                <label for="" data-bind="html: control.label"></label>
+                                <input type="checkbox" id="" class="" name="name" value="true" data-bind="checked: value" />
+                            </div>
+                            <!-- /ko -->
+                        </div>
 
                         <!-- /ko -->
                     </section>
@@ -42,8 +50,8 @@
                     <form data-bind="visible: isMaximized" style="display:none">
                         <h3>Filter by Multiple Attributes</h3>
                         <div class="commands">
-                            <button class="clear cancel-link" data-bind="click: clear">Clear Form</button>
-                            <button class="close" data-bind="click: cancel"><i class="fa fa-times"></i> Close</button>
+                            <button type="button" class="clear cancel-link" data-bind="click: clear">Clear Form</button>
+                            <button type="button" class="close" data-bind="click: cancel"><i class="fa fa-times"></i> Close</button>
                         </div>
 
                         <div class="control-groups" data-bind="foreach: fields">

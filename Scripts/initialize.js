@@ -85,7 +85,7 @@ JASON.viewModels.Sample = function(sampleData) {
                     onConditionTrue: function(prop) { return prop === null; },
                     onConditionFalse: function(prop) { return true; },// we want all records, whether active rate is null or an object.
                     placeholder: false,
-                    isExterior: true
+                    isExterior: false
                 }
             }, {
                 propertyName: 'name',
