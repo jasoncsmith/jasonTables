@@ -103,9 +103,9 @@
             <table>
                 <thead>
                     <tr data-bind="foreach: headers">
-                        <th class="sort" data-bind="class: className, css: sortDirection, click: $parent.sort">
+                        <th class="sort" data-bind="class: className, click: $parent.sort">
                             <span data-bind="text: title"></span>
-                            <span class="icon"></span>
+                            <span class="icon fa" data-bind="css: sortIcon"></span>
                         </th>
                     </tr>
                 </thead>

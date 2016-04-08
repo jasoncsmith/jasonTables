@@ -45,7 +45,7 @@ tr {width:100%;}
 .jasonTable th,
 .jasonTable td { padding:5px 10px; text-align: left } 
 
-.jasonTable th {font-weight:bold; background: #FDF9EC}
+.jasonTable th {font-weight:bold; background: #FDF9EC; position:relative; }
 
 .jasonTable .sort:hover {
     background-color: #f1efe8
@@ -61,7 +61,7 @@ tr {width:100%;}
     position: absolute;
     top: 50%;
     right: 5px;
-    margin-top: -9.5px
+    margin-top: -7.5px
 }
 
 .jasonTable .sort_invisible {

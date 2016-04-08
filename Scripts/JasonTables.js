@@ -136,21 +136,33 @@ JASON.apis.JasonTables = function(options, records) {
         this.state = ko.observable(data.state);
         this.className = data.className;
         this.isLoading = ko.observable(false);
-        this.sortDirection = ko.computed(this.getSortDirection, this);
+        // this.sortDirection = ko.computed(this.getSortDirection, this);
+        this.sortIcon = ko.computed(this.getSortIcon, this);
     };
-    Column.prototype.getSortDirection = function() {
+    // Column.prototype.getSortDirection = function() {
+    //     var state = this.state();
+
+    //     switch (state) {
+    //         case 'idle': return 'sort_idle';
+    //         case 'Ascending': return 'sort_asc';
+    //         case 'Descending': return 'sort_dsc';
+    //         case 'disabled': return 'sort_disabled';
+    //         case 'invisible': return 'sort_invisible'; // for conor's hack.
+    //         default: return 'sort_disabled';
+    //     }
+    // };
+    Column.prototype.getSortIcon = function() {
         var state = this.state();
 
         switch (state) {
-            case 'idle': return 'sort_idle';
-            case 'Ascending': return 'sort_asc';
-            case 'Descending': return 'sort_dsc';
-            case 'disabled': return 'sort_disabled';
-            case 'invisible': return 'sort_invisible'; // for conor's hack.
-            default: return 'sort_disabled';
+            case 'idle': return 'fa-sort';
+            case 'Ascending': return 'fa-sort-up';
+            case 'Descending': return 'fa-sort-down';
+            case 'disabled': return '';
+            case 'invisible': return ''; // for conor's hack.
+            default: return '';
         }
     };
-
     var Page = function(data) {
         this.value = data.value;
         this.isDisabled = data.isDisabled;
