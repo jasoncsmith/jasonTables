@@ -1,2 +1,4 @@
 # jasonTables
-A datatable.js like interface to use with knockout. Preserves the bindings of your knockout models
+A datatable.js functionality to use with knockout.js applications. Preserves the bindings of your knockout models.
+
+
