@@ -35,7 +35,11 @@ JASON.viewModels.Sample = function(sampleData) {
                 key: 'hireDate',
                 canSort: true,
                 canSearch: true,
-                sortFn: null,
+                sortFn:function(a, b) {
+                    a = JASON.utils.dates.convertStringToDateObject(ko.unwrap(a.hireDate)).getTime(),
+                    b = JASON.utils.dates.convertStringToDateObject(ko.unwrap(b.hireDate)).getTime();
+					return a === b ? 0 : a < b ? -1 : 1;
+                },
                 className: 'hireDate'
             },             
             {
@@ -43,7 +47,11 @@ JASON.viewModels.Sample = function(sampleData) {
                 key: 'phone',
                 canSort: true,
                 canSearch: true,
-                sortFn: null,
+                sortFn:function(a, b) {
+                    a = ko.unwrap(a.phone).replace(/\(\)\-+s/g, ''),
+                    b = ko.unwrap(b.phone).replace(/\(\)\-+s/g, '');
+					return a === b ? 0 : a < b ? -1 : 1;
+                },
                 className: 'phone'
             },               {
                 title: 'Is Active',
