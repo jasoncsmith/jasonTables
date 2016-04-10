@@ -17,7 +17,7 @@ input[type=search] {
     -webkit-appearance: none;
     border: 1px solid #000;
 }
-select { height:40px; line-height: 20px; background: transparent; }
+select { height:37px; line-height: 20px; background: transparent; border-color: #555; cursor: pointer; }
 label { font-weight: bold; }
 
 .control-groups {
@@ -54,7 +54,20 @@ tr {width:100%;}
 .jasonTable th,
 .jasonTable td { padding:5px 10px; text-align: left } 
 
-.jasonTable th {font-weight:bold; background: #FDF9EC; position:relative; }
+.jasonTable th {font-weight:bold; background: #FDF9EC; position:relative; cursor: pointer; }
+
+.jasonTable th.is-active {
+    width:100px;
+}
+
+.jasonTable th.phone {
+    width:120px;
+}
+
+.jasonTable th.hireDate {
+    width:100px;
+}
+
 
 .jasonTable .sort:hover {
     background-color: #f1efe8

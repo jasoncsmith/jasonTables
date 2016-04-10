@@ -1,7 +1,8 @@
-﻿// !! NOTE: not just me... 
+﻿// !! NOTE: knockout slow render times... 
 // https://github.com/knockout/knockout/issues/237
 // https://github.com/knockout/knockout/issues/248
-JASON = JASON || {};
+
+var JASON = JASON || {};
 JASON.apis = JASON.apis || {};
 
 JASON.utils = {
@@ -55,7 +56,8 @@ JASON.utils = {
 				month: (+tempArray[0]) - 1, // [0-11]
 				day: +tempArray[1],
 				year: +tempArray[2]
-			}
+			};
+      
 			return (new Date(date.year, date.month, date.day));
 		},
 		convertDateObjectToString: function (obj) {
@@ -98,7 +100,7 @@ ko.bindingHandlers.formatUnits = {
                 index++;
             }
             return output.join('');
-        };
+        }
 
 
         if (roundValue) {
@@ -182,7 +184,7 @@ JASON.apis.JasonTables = function(options, records) {
     var allRecords = records; // points to parent viewmodels master list
     //allRecords(records);
 
-    var resultSet = ko.observableArray([]);                                  // filtered, or all :: is only added, or removed from by filter fn's, and display object
+    var resultSet = ko.observableArray([]); // filtered, or all :: is only added, or removed from by filter fn's, and display object
     var recordsToDisplay = ko.observableArray([]); // currently visible, paging :: is only added, or removed from by paging fn's
 
     var columns = ko.observableArray([]);
@@ -280,7 +282,7 @@ JASON.apis.JasonTables = function(options, records) {
                 break;
 
         }
-    }
+    };
 
     function objectTraverser(path, obj) {
         // ex: path = 'lastRateWindow:NESTING1:PropIamLookingFor';
@@ -453,8 +455,6 @@ JASON.apis.JasonTables = function(options, records) {
         }
     });
 
-    //visible: (!advancedFilter.isActive() && !advancedFilter.isMaximized()) && recordsToDisplay().length > 0 || filter
-
     var sorting = {
         isLoading: ko.observable(false),
         selected: ko.observable(null),
@@ -479,7 +479,7 @@ JASON.apis.JasonTables = function(options, records) {
         },
         execute: function() {
             var item = sorting.selected();
-            var fn = item.sortFn
+            var fn = item.sortFn;
             var state = ko.unwrap(item.state);
 
             if (typeof fn === 'function') {
@@ -489,7 +489,7 @@ JASON.apis.JasonTables = function(options, records) {
                 resultSet.sort(function(a, b) {
 
                     a = ko.unwrap(a[key]),
-                        b = ko.unwrap(b[key]);
+                    b = ko.unwrap(b[key]);
 
                     if (typeof a === 'string') a = a.toLowerCase();
                     if (typeof b === 'string') b = b.toLowerCase();
@@ -639,15 +639,12 @@ JASON.apis.JasonTables = function(options, records) {
                 }));
             },
             fire: function() {
-                // this does not take into account records that are removed,
-                // state is screwed up if records are removed
-                // needs a re-think to be fair.
 
                 var selectedPageLength = paging.selectedPageLength();
                 var index = (paging.currentPage - 1) * selectedPageLength;
                 var resultSetLength = resultSet().length;
                 var min = index;
-                var max = index + selectedPageLength
+                var max = index + selectedPageLength;
 
                 if (resultSetLength !== 0 && resultSetLength <= index) {
                     // we have deleted a record from the result set and now this is screwed up,
@@ -657,7 +654,7 @@ JASON.apis.JasonTables = function(options, records) {
                     max = index;
 
                     // bring her back a page.
-                    paging.navigation.select({ value: paging.currentPage - 1 })
+                    paging.navigation.select({ value: paging.currentPage - 1 });
                 }
 
                 var output = resultSet.slice(min, max);
@@ -685,10 +682,6 @@ JASON.apis.JasonTables = function(options, records) {
             controller('reset');
         }
 
-        //if (filtering.byCriteria.isActive() === true) {
-        //            filtering.byCriteria.clear(); // !! MAKE SURE THIS IS NOT A PROBLEM HERE.
-        //}
-
         isLoading(false);
     };
 
@@ -699,10 +692,7 @@ JASON.apis.JasonTables = function(options, records) {
             visible: '',
             attr: ''
         }
-    }
-
-
-
+    };
 
 
     var initialize = function() {
@@ -726,15 +716,6 @@ JASON.apis.JasonTables = function(options, records) {
             }
         }
 
-        //if (options.advancedFilter === true) {
-        //	// not sure I like this approach or use pub/sub
-        //	advancedSearchInstance = new JASON.apis.AdvancedFilter({
-        //		allRecords: allRecords,
-        //		resultSet: resultSet,
-        //		controller: controller
-        //	});
-        //}
-
         if (JASON.utils.checkVariableType(options.advancedFilter) === 'object') {
             // not sure I like this approach or use pub/sub
             advancedSearchInstance = new JASON.apis.AdvancedFilter({
@@ -743,7 +724,7 @@ JASON.apis.JasonTables = function(options, records) {
                 controller: controller
             });
 
-            advancedSearchInstance.initialize({ fields: options.advancedFilter.config, owner: options.owner })
+            advancedSearchInstance.initialize({ fields: options.advancedFilter.config, owner: options.owner });
         }
 
         if (options.defaultSort) {
@@ -752,20 +733,20 @@ JASON.apis.JasonTables = function(options, records) {
             column.state(options.defaultSort.direction);
             columnDefaultSort(column);
             columnDefaultSort.defaultSortDirection = options.defaultSort.direction;
-            sorting.selected(column)
+            sorting.selected(column);
 
         } else {
             var column = columns()[0];
 
             column.state('Descending');
             columnDefaultSort(column);
-            columnDefaultSort.defaultSortDirection = 'Descending'
-            sorting.selected(column)
+            columnDefaultSort.defaultSortDirection = 'Descending';
+            sorting.selected(column);
         }
 
-        ko.postbox.subscribe('update-jason-tables', function() { controller('update') });
-        ko.postbox.subscribe('reset-jason-tables', function() { controller('reset') });
-        ko.postbox.subscribe('update-jason-tables-advancedFilter', function() { controller('advancedFilter:update') });
+        ko.postbox.subscribe('update-jason-tables', function() { controller('update'); });
+        ko.postbox.subscribe('reset-jason-tables', function() { controller('reset'); });
+        ko.postbox.subscribe('update-jason-tables-advancedFilter', function() { controller('advancedFilter:update'); });
 
         initialized = true;
     } ();
@@ -802,7 +783,7 @@ JASON.apis.JasonTables = function(options, records) {
         recordType: recordType,
         advancedFilter: advancedSearchInstance,
         bindingAttributes: bindingAttributes
-    }
+    };
 };
 
 // 11,000 > 410
